@@ -1,0 +1,115 @@
+Prompt for Cursor AI:
+
+Generate a complete web-based meeting room booking system using the following stack:
+
+- Frontend: React with TypeScript
+
+- Backend: Node.js with TypeScript (e.g., Express)
+
+- Data Storage: In-memory for now, but code should be structured to allow future integration with a database (e.g., using a repository or service layer abstraction)
+
+✅ System Requirements:
+1. Room Selection
+  - Users can choose from 5 predefined meeting rooms
+
+  - Each room includes:
+
+    . id: string
+
+    . name: string
+
+    . capacity: number
+
+    . floor: number
+
+  - These rooms should be generated as sample data in the backend on startup
+
+2. Date & Time Selection
+  - Allow users to select a booking date and time slot
+
+  - Time validation should ensure:
+
+    . Booking is in the future
+
+    . Only valid time slots (e.g., 30-minute or 1-hour blocks)
+
+3. User Information
+  - Input form should collect:
+
+    . name: string (required)
+
+    . email: string (must be a valid format)
+
+4. Conflict Prevention
+  - Prevent users from booking the same room and time slot if it’s already booked
+
+  - Return an error if conflict is detected
+
+5. Booking Display
+  - Show a list of upcoming bookings
+
+  - Allow filtering by room and date
+
+6. Real-time Updates
+  - Implement automatic UI updates after booking creation or deletion (can use polling for simplicity)
+
+7. Responsive Design
+  - Frontend should be mobile-friendly and adjust layout for smaller screens
+
+8. Type Safety
+  - Use TypeScript throughout (both frontend and backend)
+
+  - Define shared types for rooms, bookings, and users
+
+  - Ensure strict typing and helpful error messages
+
+🧱 Architecture Notes:
+  - Structure backend logic using repository or service pattern
+
+  - e.g., InMemoryBookingRepository should implement an interface like BookingRepository
+
+  - This allows for easy swapping to a DB-backed implementation later with minimal code change
+
+  - Avoid tight coupling between controllers and data storage
+
+📦 Deliverables:
+  - Backend (Node.js + TypeScript):
+
+    . Express API for:
+
+    . Fetching rooms
+
+    . Creating, fetching, and deleting bookings
+
+    . Sample room data initialized in-memory
+
+    . Booking storage in-memory
+
+    . Modular structure using repository pattern
+
+    . Shared types.ts or similar file for DTOs/interfaces
+
+    . Instructions for running with npm or yarn
+
+  - Frontend (React + TypeScript):
+
+    . Components for:
+
+      . Room selection dropdown
+
+      . Booking form (name, email, date, time, room)
+
+      . Booking list with filter options
+
+      . Form validation for inputs
+
+      . Real-time update mechanism (polling or minimal WebSocket)
+
+      . Responsive layout using CSS or a UI library like Material UI or Tailwind (optional)
+
+🧪 Optional Enhancements:
+   - Seed the backend with a few sample bookings for testing
+
+   - Use uuid for generating unique IDs for bookings and users
+
+   - Add comments throughout the code to explain logic and future extension points
