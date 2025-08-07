@@ -1,0 +1,12 @@
+{
+  "tools": {
+    "meeting-room-booking": {
+      "type": "mcp",
+      "command": "node",
+      "args": ["/path/to/meeting-room-booking/mcp-server/dist/index.js"],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+} 

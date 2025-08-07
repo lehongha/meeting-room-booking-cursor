@@ -93,6 +93,16 @@ meeting-room-booking/
 │   ├── package.json
 │   ├── vite.config.ts
 │   └── index.html
+├── mcp-server/                 # MCP server cho LLM integration
+│   ├── src/
+│   │   ├── functions.ts       # MCP server implementation
+│   │   ├── api-client.ts      # API client for backend
+│   │   ├── types.ts           # TypeScript type definitions
+│   │   └── index.ts           # MCP server entry point
+│   ├── scripts/                # Setup và test scripts
+│   ├── examples/               # Configuration examples
+│   ├── package.json
+│   └── README.md
 ├── shared/                     # Shared types và utilities
 │   ├── types.ts               # TypeScript interfaces
 │   └── utils.ts               # Utility functions
@@ -199,6 +209,28 @@ npm run build
 # Serve dist/ folder với web server
 ```
 
+## 🤖 MCP Server Integration
+
+Hệ thống bao gồm MCP (Model Context Protocol) server cho phép tích hợp với các MCP client như Cursor hoặc Claude Desktop để tương tác với hệ thống đặt phòng thông qua chat với LLM.
+
+### Tính năng MCP Server
+- ✅ **get_rooms**: Lấy danh sách phòng họp
+- ✅ **get_bookings**: Lấy danh sách đặt lịch với filter
+- ✅ **create_booking**: Tạo đặt lịch mới
+- ✅ **delete_booking**: Xóa đặt lịch
+- ✅ **get_available_time_slots**: Lấy khung giờ có sẵn
+
+### Cài đặt MCP Server
+```bash
+cd mcp-server
+npm install
+npm run build
+npm test  # Test kết nối với backend
+```
+
+### Tích hợp với MCP Clients
+Xem file `mcp-server/README.md` để biết chi tiết cách tích hợp với Cursor và Claude Desktop.
+
 ## 🔮 Tính năng tương lai
 
 - [ ] Database integration (PostgreSQL/MongoDB)
@@ -209,6 +241,8 @@ npm run build
 - [ ] Room equipment management
 - [ ] Advanced reporting
 - [ ] Mobile app
+- [ ] WebSocket support cho real-time updates
+- [ ] Advanced MCP functions (room analytics, user management)
 
 ## 🤝 Contributing
 
